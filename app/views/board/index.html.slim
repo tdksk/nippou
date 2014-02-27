@@ -1,0 +1,25 @@
+- @dates.reverse_each do |date|
+  - my_entry = Entry.where(date: date, user_id: current_user.id).first
+  - partner_entry = Entry.where(date: date, user_id: current_user.partner.id).first
+  .entry-wrapper
+    p.date
+      = date
+    .partner-entry
+      - if partner_entry.nil?
+        .no-entry
+          p
+            | 相手がまだ日報を書いていません
+      - else
+        = simple_format partner_entry.body
+        .comment-area
+          = render partial: 'comments/show_and_form', locals: { entry: partner_entry }
+    .my-entry
+      - if my_entry.nil?
+        .no-entry
+          p
+            = link_to '日報を書く', new_entry_path(date: date), class: 'button'
+      - else
+        = link_to '編集', edit_entry_path(my_entry), class: 'entry-edit-link'
+        = simple_format my_entry.body
+        .comment-area
+          = render partial: 'comments/show_and_form', locals: { entry: my_entry }

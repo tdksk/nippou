@@ -1,0 +1,6 @@
+.comments
+  - unless entry.comments.blank?
+    - entry.comments.each do |comment|
+      = render partial: 'comments/show', locals: { comment: comment }
+
+= render partial: 'comments/form', locals: { entry: entry }

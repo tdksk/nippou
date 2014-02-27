@@ -1,0 +1,8 @@
+- @my_entries.each do |entry|
+  .entry
+    h2.entry-date
+      = link_to entry.date, edit_entry_path(entry)
+    .entry-body
+      = simple_format entry.body
+
+= link_to 'New Entry', new_entry_path

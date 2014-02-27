@@ -1,0 +1,233 @@
+/*
+*= require bootstrap-datepicker
+*/
+
+@import 'normalize';
+@import 'settings';
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 14px;
+  font-weight: normal;
+  font-weight: 400;
+  color: $main_text_color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $link_color;
+  text-decoration: none;
+
+  &:hover {
+    opacity: .8;
+  }
+}
+
+input,
+textarea {
+  display: block;
+  background: $white;
+  border: 1px solid #bababa;
+  color: $black;
+  font-family: $font-family;
+  font-weight: normal;
+  font-weight: 400;
+  margin: 0 0 15px 0;
+  padding: 6px;
+  width: 100%;
+  border-radius: $round;
+  -webkit-appearance: none;  /* for iOS */
+}
+
+input {
+  max-width: 300px;
+  margin-top: 10px;
+}
+
+a.button,
+input[type="submit"] {
+  background: $green;
+  border: none;
+  color: #fff;
+  width: auto;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: $round;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+input#entry_date {
+  width: 120px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.header {
+  padding: 10px 0;
+
+  h1 {
+    font-size: 16px;
+    font-weight: normal;
+    font-weight: 400;
+    margin: 0;
+
+    a {
+      color: $main_text_color;
+
+      &:hover {
+        color: $link_color;
+      }
+    }
+  }
+}
+
+.entry-wrapper {
+  @include clearfix;
+  position: relative;
+  border: 1px solid $light_gray;
+  border-radius: $round;
+  width: 100%;
+  padding: 10px;
+  margin: 20px 0;
+
+  .date {
+    position: absolute;
+    top: -24px;
+    z-index: 100;
+    background: $light_gray;
+    padding: 2px 4px;
+    border-radius: $round;
+  }
+
+  .partner-entry,
+  .my-entry {
+    position: relative;
+    background: $white;
+    float: left;
+    width: 50%;
+  }
+
+  .partner-entry {
+    border-right: 1px solid $light_gray;
+    padding-right: 15px;
+  }
+
+  .my-entry {
+    border-left: 1px solid $light_gray;
+    margin-left: -1px;
+    padding-left: 15px;
+  }
+
+  .entry-edit-link {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: -4px;
+  }
+
+  .no-entry {
+    text-align: center;
+
+    p {
+      color: $gray;
+    }
+  }
+
+  .comment-area {
+    @include clearfix;
+    font-size: 12px;
+    background: $extra_light_gray;
+    border-radius: $round;
+    padding: 10px;
+
+    .comment-body {
+      margin-bottom: 10px;
+      padding: 1px 10px;
+      border-radius: $round;
+    }
+
+    .partner-comment {
+      background: $light_gray;
+      margin-right: 40px;
+    }
+
+    .my-comment {
+      background: $light_green;
+      margin-left: 40px;
+    }
+
+    form {
+      margin: 0 0 0 40px;
+
+      textarea {
+        margin-bottom: 5px;
+      }
+
+      input[type="submit"] {
+        float: right;
+      }
+    }
+  }
+}
+
+.datepicker.dropdown-menu {
+  font-family: $font-family;
+}
+
+.datepicker table tr td.active:active, .datepicker table tr td.active:hover:active, .datepicker table tr td.active.disabled:active, .datepicker table tr td.active.disabled:hover:active, .datepicker table tr td.active.active, .datepicker table tr td.active:hover.active, .datepicker table tr td.active.disabled.active, .datepicker table tr td.active.disabled:hover.active {
+  background: $green;
+}
+
+.datepicker table tr td.active, .datepicker table tr td.active:hover, .datepicker table tr td.active.disabled, .datepicker table tr td.active.disabled:hover {
+  text-shadow: none;
+}
+
+@include mobile {
+  .container {
+    padding: 0 10px;
+  }
+
+  .entry-wrapper {
+    .partner-entry,
+    .my-entry {
+      width: 100%;
+    }
+
+    .partner-entry {
+      border-right: none;
+      padding-right: 0;
+
+      .comment-area {
+        margin-bottom: 10px;
+      }
+    }
+
+    .my-entry {
+      border-top: 1px solid $light_gray;
+      border-left: none;
+      margin-left: 0;
+      padding-top: 10px;
+      padding-left: 0;
+    }
+
+    .entry-edit-link {
+      top: 6px;
+    }
+  }
+}
