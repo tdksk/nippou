@@ -14,3 +14,8 @@ gem 'devise', '~> 3.2.2'
 group :test, :development do
   gem 'pry-rails'
 end
+
+group :production do
+  # For Heroku
+  gem 'rails_12factor'
+end
