@@ -122,17 +122,33 @@ input#entry_date {
     border-radius: $round;
   }
 
+  .posted-date {
+    font-size: 12px;
+    color: $main_text_color_light;
+    margin: 0;
+    position: absolute;
+  }
+
   .partner-entry,
   .my-entry {
     position: relative;
     background: $white;
     float: left;
     width: 50%;
+
+    .posted-date {
+      font-size: 12px;
+      top: -4px;
+    }
   }
 
   .partner-entry {
     border-right: 1px solid $light_gray;
     padding-right: 15px;
+
+    .posted-date {
+      right: 15px;
+    }
   }
 
   .my-entry {
@@ -152,7 +168,7 @@ input#entry_date {
     text-align: center;
 
     p {
-      color: $gray;
+      color: $main_text_color_light;
     }
   }
 
@@ -164,9 +180,16 @@ input#entry_date {
     padding: 10px;
 
     .comment-body {
+      position: relative;
       margin-bottom: 10px;
       padding: 1px 10px;
       border-radius: $round;
+
+      .posted-date {
+        font-size: 10px;
+        right: 4px;
+        top: 1px;
+      }
     }
 
     .partner-comment {
@@ -220,6 +243,10 @@ input#entry_date {
       border-right: none;
       padding-right: 0;
 
+      .posted-date {
+        right: 0;
+      }
+
       .comment-area {
         margin-bottom: 10px;
       }
@@ -231,6 +258,10 @@ input#entry_date {
       margin-left: 0;
       padding-top: 10px;
       padding-left: 0;
+
+      .posted-date {
+        top: 6px;
+      }
     }
 
     .entry-edit-link {

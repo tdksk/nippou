@@ -1,3 +1,5 @@
 - class_name = (comment.user == current_user) ? 'my-comment' : 'partner-comment'
 .comment-body class=class_name
   = simple_format comment.body
+  p.posted-date
+    = comment.created_at.strftime('%m/%d %H:%M')

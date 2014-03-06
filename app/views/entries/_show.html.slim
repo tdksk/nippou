@@ -1,0 +1,5 @@
+p.posted-date
+  = entry.created_at.strftime('%m/%d %H:%M')
+= simple_format entry.body
+.comment-area
+  = render partial: 'comments/show_and_form', locals: { entry: entry }
